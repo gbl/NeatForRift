@@ -1,0 +1,10 @@
+{
+  "minVersion": "0.7.7",
+  "package": "vazkii.neat.mixin",
+  "refmap": "mixins.neat.refmap.json",
+  "mixins": [],
+  "client": [
+    "MixinEntityRenderer",
+    "MixinWorldClient"
+  ]
+}

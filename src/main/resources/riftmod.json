@@ -1,0 +1,13 @@
+{
+  "id": "neat",
+  "name": "Neat",
+  "authors": [
+    "Vazkii",
+    "gbui"
+  ],
+  "listeners": [
+    "vazkii.neat.NeatCore",
+    "vazkii.neat.HealthBarRenderer",
+    "vazkii.neat.ToggleKeybind"
+  ]
+}
