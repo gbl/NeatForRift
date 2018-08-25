@@ -3,19 +3,22 @@ buildscript {
         mavenCentral()
         maven { url 'https://dimdev.org/maven' }
         maven { url 'http://repo.spongepowered.org/maven' }
+        maven { url 'https://plugins.gradle.org/m2/' }
     }
     dependencies {
         classpath 'org.dimdev:ForgeGradle:2.3-SNAPSHOT'
         classpath 'org.spongepowered:mixingradle:0.6-SNAPSHOT'
+        classpath 'gradle.plugin.com.matthewprenger:CurseGradle:1.1.0'
     }
 }
 
 apply plugin: 'net.minecraftforge.gradle.tweaker-client'
 apply plugin: 'java'
 apply plugin: 'org.spongepowered.mixin'
+apply plugin: 'com.matthewprenger.cursegradle'
 
 group 'vazkii.neat'
-version '0.1'
+version '0.1.1'
 archivesBaseName = 'NeatForRift'
 
 sourceCompatibility = 1.8
@@ -40,6 +43,21 @@ minecraft {
 mixin {
     defaultObfuscationEnv notch
     add sourceSets.main, 'mixins.neat.refmap.json'
+}
+
+curseforge {
+    apiKey = System.getenv('CURSEFORGE_KEY') ?: '0'
+    project {
+        id = '301313'
+        releaseType = 'beta'
+        addGameVersion project.minecraft.version
+
+        mainArtifact(jar) {
+            relations {
+                requiredDependency 'rift'
+            }
+        }
+    }
 }
 
 // FIXME: cannot access TextFormatting
