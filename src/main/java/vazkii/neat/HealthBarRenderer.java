@@ -180,7 +180,7 @@ public class HealthBarRenderer implements RenderWorldLastListener {
 				if(entity instanceof EntityLiving && ((EntityLiving) entity).hasCustomName())
 					name = TextFormatting.ITALIC + ((EntityLiving) entity).getCustomName().getFormattedText();
 				else if(entity instanceof EntityVillager)
-					name = I18n.format("entity.Villager.name");
+					name = I18n.format("entity.minecraft.villager");
 					
 				float namel = mc.fontRenderer.getStringWidth(name) * s;
 				if(namel + 20 > size * 2)
