@@ -5,6 +5,7 @@
   "mixins": [],
   "client": [
     "MixinEntityRenderer",
+    "MixinGameSettings",
     "MixinWorldClient"
   ]
 }

@@ -1,22 +1,28 @@
 package vazkii.neat;
 
+import net.minecraft.client.GameSettings;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.settings.KeyBinding;
 import org.apache.commons.lang3.ArrayUtils;
-import org.dimdev.rift.listener.client.ClientTickable;
+import org.dimdev.rift.listener.client.KeybindHandler;
+import vazkii.neat.listener.GameSettingsLoadListener;
 
-public class ToggleKeybind implements ClientTickable {
+public class ToggleKeybind implements GameSettingsLoadListener, KeybindHandler {
 
 	KeyBinding key;
 	boolean down;
 	
 	public ToggleKeybind() {
 		key = new KeyBinding("neat.keybind.toggle", -1, "key.categories.misc");
-		Minecraft.getMinecraft().gameSettings.keyBindings = ArrayUtils.add(Minecraft.getMinecraft().gameSettings.keyBindings, key);
 	}
 
 	@Override
-	public void clientTick() {
+	public void onLoadOptions(GameSettings gameSettings) {
+		gameSettings.keyBindings = ArrayUtils.add(gameSettings.keyBindings, key);
+	}
+
+	@Override
+	public void processKeybinds() {
 		Minecraft mc = Minecraft.getMinecraft();
 		boolean wasDown = down;
 		down = key.isKeyDown();
