@@ -1,21 +1,19 @@
 buildscript {
     repositories {
         mavenCentral()
-        maven { url 'https://dimdev.org/maven' }
+        maven { url 'https://www.jitpack.io' }
+        maven { url 'https://files.minecraftforge.net/maven' }
         maven { url 'http://repo.spongepowered.org/maven' }
-        maven { url 'https://plugins.gradle.org/m2/' }
     }
     dependencies {
-        classpath 'org.dimdev:ForgeGradle:2.3-SNAPSHOT'
+        classpath 'com.github.Chocohead:ForgeGradle:jitpack-SNAPSHOT'
         classpath 'org.spongepowered:mixingradle:0.6-SNAPSHOT'
-        classpath 'gradle.plugin.com.matthewprenger:CurseGradle:1.1.0'
     }
 }
 
 apply plugin: 'net.minecraftforge.gradle.tweaker-client'
-apply plugin: 'java'
 apply plugin: 'org.spongepowered.mixin'
-apply plugin: 'com.matthewprenger.cursegradle'
+apply plugin: 'java'
 
 group 'vazkii.neat'
 version '0.1.3'
@@ -27,15 +25,16 @@ targetCompatibility = 1.8
 repositories {
     mavenCentral()
     maven { url 'https://dimdev.org/maven' }
+    maven { url 'https://www.jitpack.io' }
 }
 
 dependencies {
-    implementation 'org.dimdev:rift:1.0.3-45:dev'
+    implementation 'com.github.Chocohead:Rift:jitpack-SNAPSHOT:dev'
 }
 
 minecraft {
-    version = '1.13'
-    mappings = 'snapshot_5'
+    version = '1.13.2'
+    mappings = 'snapshot_20181130'
     runDir = 'run'
     tweakClass = 'org.dimdev.riftloader.launch.RiftLoaderClientTweaker'
 }
@@ -45,6 +44,7 @@ mixin {
     add sourceSets.main, 'mixins.neat.refmap.json'
 }
 
+/*
 curseforge {
     apiKey = System.getenv('CURSEFORGE_KEY') ?: '0'
     project {
@@ -77,3 +77,4 @@ compileJava {
     }
 }
 // Temporary Fix end
+*/

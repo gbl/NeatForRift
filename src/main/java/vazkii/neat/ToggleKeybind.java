@@ -23,10 +23,10 @@ public class ToggleKeybind implements GameSettingsLoadListener, KeybindHandler {
 
 	@Override
 	public void processKeybinds() {
-		Minecraft mc = Minecraft.getMinecraft();
+		Minecraft mc = Minecraft.getInstance();
 		boolean wasDown = down;
 		down = key.isKeyDown();
-		if(mc.mouseHelper.isMouseFocused() && down && !wasDown)
+		if(mc.mouseHelper.isMouseGrabbed() && down && !wasDown)
 			NeatConfig.draw = !NeatConfig.draw;
 	}
 	
