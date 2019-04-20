@@ -1,33 +1,31 @@
 package vazkii.neat;
 
-import net.minecraft.client.GameSettings;
-import net.minecraft.client.Minecraft;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 import net.minecraft.client.settings.KeyBinding;
-import org.apache.commons.lang3.ArrayUtils;
+import org.dimdev.rift.listener.client.KeyBindingAdder;
 import org.dimdev.rift.listener.client.KeybindHandler;
-import vazkii.neat.listener.GameSettingsLoadListener;
+import org.lwjgl.glfw.GLFW;
 
-public class ToggleKeybind implements GameSettingsLoadListener, KeybindHandler {
+public class ToggleKeybind implements KeyBindingAdder, KeybindHandler {
 
 	KeyBinding key;
-	boolean down;
-	
-	public ToggleKeybind() {
-		key = new KeyBinding("neat.keybind.toggle", -1, "key.categories.misc");
+
+    public ToggleKeybind() {
 	}
 
-	@Override
-	public void onLoadOptions(GameSettings gameSettings) {
-		gameSettings.keyBindings = ArrayUtils.add(gameSettings.keyBindings, key);
-	}
-
-	@Override
+    @Override
 	public void processKeybinds() {
-		Minecraft mc = Minecraft.getInstance();
-		boolean wasDown = down;
-		down = key.isKeyDown();
-		if(mc.mouseHelper.isMouseGrabbed() && down && !wasDown)
+        if (key.isPressed()) {
 			NeatConfig.draw = !NeatConfig.draw;
+        }
 	}
-	
+
+    @Override
+    public Collection<? extends KeyBinding> getKeyBindings() {
+        List<KeyBinding> myBindings=new ArrayList();
+        myBindings.add(key = new KeyBinding("neat.keybind.toggle", GLFW.GLFW_KEY_UNKNOWN, "key.categories.ui"));
+        return myBindings;        
+    }
 }
