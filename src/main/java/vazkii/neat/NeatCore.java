@@ -1,13 +1,18 @@
 package vazkii.neat;
 
-import org.dimdev.riftloader.listener.InitializationListener;
-import org.spongepowered.asm.launch.MixinBootstrap;
-import org.spongepowered.asm.mixin.Mixins;
+import de.guntram.mcmod.fabrictools.KeyBindingManager;
+import net.fabricmc.api.ClientModInitializer;
+import vazkii.neat.listener.RenderWorldLastListener;
 
-public class NeatCore implements InitializationListener {
+public class NeatCore implements ClientModInitializer {
+    
+    public static RenderWorldLastListener renderer;
+    
     @Override
-    public void onInitialization() {
-        MixinBootstrap.init();
-        Mixins.addConfiguration("mixins.neat.json");
+    public void onInitializeClient() {
+        renderer=new HealthBarRenderer();
+        ToggleKeybind keyBinder = new ToggleKeybind();
+        keyBinder.setKeyBindings();
+        KeyBindingManager.register(keyBinder);
     }
 }

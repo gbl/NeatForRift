@@ -1,0 +1,25 @@
+{
+    "schemaVersion": 1,
+    "id": "neat",
+    "version": "1.14pre5-fabric0.4.1-1.0",
+    "environment": "client",
+    "entrypoints": {
+        "client": [ "vazkii.neat.NeatCore" ],
+        "NOTYETmodmenu": [ "de.guntram.mcmod.grid.MMConfigurationHandler" ]
+    },
+    "custom": {
+        "modmenu:clientsideOnly": true
+    },
+    "mixins": [
+      	"mixins.neat.json", "mixins.neat_fabrictools.json"
+    ],
+    "depends": {
+      "fabric": "*"
+    },
+    "recommends": {
+      "modmenu" : "*"
+    },
+    "name": "Neat",
+    "description": "Show stuff overlaid over blocks",
+    "authors": [ "Vazkii", "gbui", "Giselbaer" ]
+}

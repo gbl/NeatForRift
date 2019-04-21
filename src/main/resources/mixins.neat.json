@@ -1,10 +1,12 @@
 {
-  "minVersion": "0.7.7",
-  "package": "vazkii.neat.mixin",
-  "refmap": "mixins.neat.refmap.json",
-  "mixins": [],
-  "client": [
-    "MixinEntityRenderer",
-    "MixinWorldClient"
-  ]
+    "required": true,
+    "package": "vazkii.neat.mixin",
+    "refmap": "NeatForFabric-refmap.json",
+    "minVersion": "0.6",
+    "client": [
+        "MixinEntityRenderer"
+    ],
+    "injectors": {
+        "defaultRequire": 1
+    }
 }

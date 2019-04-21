@@ -1,6 +1,6 @@
 package vazkii.neat;
 
-import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.Identifier;
 
 import java.util.Arrays;
 import java.util.List;
@@ -31,7 +31,7 @@ public class NeatConfig {
 	public static boolean showOnlyFocused = false;
 	public static boolean enableDebugInfo = true;
 
-	public static List<ResourceLocation> blacklist = Arrays.asList(new ResourceLocation("shulker"), new ResourceLocation("armor_stand"));
+	public static List<Identifier> blacklist = Arrays.asList(new Identifier("shulker"), new Identifier("armor_stand"));
 
 	// TODO: config
 }
