@@ -5,7 +5,7 @@
     "environment": "client",
     "entrypoints": {
         "client": [ "vazkii.neat.NeatCore" ],
-        "NOTYETmodmenu": [ "de.guntram.mcmod.grid.MMConfigurationHandler" ]
+        "modmenu": [ "vazkii.neat.NeatModMenu" ]
     },
     "custom": {
         "modmenu:clientsideOnly": true
@@ -20,6 +20,6 @@
       "modmenu" : "*"
     },
     "name": "Neat",
-    "description": "Show stuff overlaid over blocks",
+    "description": "Show unit frames",
     "authors": [ "Vazkii", "gbui", "Giselbaer" ]
 }
