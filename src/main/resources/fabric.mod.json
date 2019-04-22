@@ -11,7 +11,7 @@
         "modmenu:clientsideOnly": true
     },
     "mixins": [
-      	"mixins.neat.json", "mixins.neat_fabrictools.json"
+      	"mixins.neat.json"
     ],
     "depends": {
       "fabric": "*"
